@@ -1,5 +1,5 @@
 Gunicorn
-python==3.9.9
+python==3.8.2
 python-dotenv
 flask
 werkzeug
