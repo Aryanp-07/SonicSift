@@ -14,10 +14,10 @@ app.config['SECRET_KEY'] = os.getenv('key')
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Custom error handler for all HTTP errors
-@app.errorhandler(HTTPException)
-def handle_http_error(error):
-    return render_template('error.html', error_description=error.description), error.code
+# # Custom error handler for all HTTP errors
+# @app.errorhandler(HTTPException)
+# def handle_http_error(error):
+#     return render_template('error.html', error_description=error.description), error.code
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -79,4 +79,4 @@ def result():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
