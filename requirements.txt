@@ -1,5 +1,7 @@
 Gunicorn
 python-dotenv
+OpenSSL==1.0.2k
+urllib3==1.26.7
 flask
 werkzeug
 spotipy
