@@ -7,4 +7,3 @@ pymongo
 tensorflow
 librosa
 numpy
-dotenv
