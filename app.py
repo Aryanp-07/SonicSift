@@ -66,15 +66,15 @@ def landing():
 def result():
     musicfile = request.files['music-file']
     filename = musicfile.filename
-    musicfile.save(os.path.join('uploads', filename))
+    musicfile.save(f"uploads/{filename}")
 
     # processing
-    genre = model.predict_genre(os.path.join('uploads', filename))
+    genre = model.predict_genre(f"uploads/{filename}")
     recommend_list = sp.recommend(genre)
     new_genres = snup.new_ones()
     new_recommendations = sp.new_recommend(new_genres)
     snup.update_preferences(genre)
-    os.remove(os.path.join('uploads', filename))
+    os.remove(f"uploads/{filename}")
     return render_template('result.html', genre=genre, recommend_list=recommend_list, new_recommendations=new_recommendations)
 
 
