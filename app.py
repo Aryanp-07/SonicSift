@@ -66,7 +66,7 @@ def landing():
 def result():
     musicfile = request.files['music-file']
     filename = musicfile.filename
-    musicfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    musicfile.save(os.path.join('uploads', filename))
 
     # processing
     genre = model.predict_genre(os.path.join('uploads', filename))
