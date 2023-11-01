@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="static/result.css">
+    <!-- <link href="static/black-dashboard.css" rel="stylesheet" /> -->
+</head>
+<body class="white-content">
+    <br>
+    <h1>MyGenrAI</h1>
+    <div class="card">
+        <div class="card-body">
+            <h1>&#9888; Uh oh, An error occured</h1>
+            <h5>{{error_description}}</h5>
+        </div>
+    </div>
+</body>
+{% endblock %}
+

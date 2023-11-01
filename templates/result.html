@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link rel="stylesheet" href="static/card.css">
+    <!-- <link href="static/black-dashboard.css" rel="stylesheet" /> -->
+</head>
+<body class="white-content">
+    <div class="card" style="margin-top: 20px;">
+        <div class="card-body">
+            <a href="{{url_for('landing')}}" style="float: right; color:black;">&circlearrowright; Upload new song</a>
+            <h1>MyGenrAI</h1>
+            <h3>The predicted genre is &emsp;<span class="h1">"{{genre}}"</span></h3>
+        </div>
+    </div>
+    <h1>Recommended Songs</h1>
+    <div class="grid">
+        {% for item in recommend_list %}
+        <a href="{{item['Link']}}" target="_blank"><div class="audio-player">
+            <div class="album-cover"><img src="{{item['Image']}}" alt="{{item['Song']}}"></div>
+            <div class="player-controls">
+            <div class="song-info">
+                {% if item['Song']|length <15 %}
+                    <div class="song-title">{{item['Song']}}</div>
+                {% else %}
+                    <div class="song-title">{{item['Song'][:15]+'...'}}</div>
+                {% endif %}
+                <p class="artist">{{item['Artist']}}</p>
+            </div>
+            </div>
+        </div></a>
+        {% endfor %}
+    </div>
+    <br>
+    <h1>New Recommendations</h1>
+    <div class="grid">
+        {% for item in new_recommendations %}
+        <a href="{{item['Link']}}" target="_blank"><div class="audio-player">
+            <div class="album-cover"><img src="{{item['Image']}}" alt="{{item['Song']}}"></div>
+            <div class="player-controls">
+            <div class="song-info">
+                {% if item['Song']|length <15 %}
+                    <div class="song-title">{{item['Song']}}</div>
+                {% else %}
+                    <div class="song-title">{{item['Song'][:15]+'...'}}</div>
+                {% endif %}
+                <p class="artist">{{item['Artist']}}</p>
+            </div>
+            </div>
+        </div></a>
+        {% endfor %}
+    </div>
+
+</body>
+{% endblock %}
+
+

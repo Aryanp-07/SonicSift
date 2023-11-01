@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link rel="stylesheet" href="static/upload.css">
+    <!-- <link href="static/black-dashboard.css" rel="stylesheet" /> -->
+</head>
+<body class="white-content">
+    <div class="card">
+        <div class="card-body">
+            <h1>MyGenrAI</h1>
+            <p>Upload your sample music file</p>
+            <br>
+            <form action="/result" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                  <label for="music-file" class="drop-container">
+                    <span class="drop-title">Drop files here</span>
+                    <span class="drop-title">or</span>
+                    <span class="drop-title">Click here to select a file</span>
+                    <input type="file" id="music-file" name="music-file" accept=".wav, .mp3" ondrop="this.form.submit()" oninput="this.form.submit()" required>
+                  </label>
+                </fieldset>
+              </form>
+            <!-- <div class="input-div">
+                <input class="input" name="file" type="file">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" class="icon"><polyline points="16 16 12 12 8 16"></polyline><line y2="21" x2="12" y1="12" x1="12"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
+            </div> -->
+        </div>
+    </div>
+</body>
+{% endblock %}

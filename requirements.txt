@@ -1,0 +1,10 @@
+Gunicorn
+os
+flask
+werkzeug
+spotipy
+pymongo
+tensorflow
+librosa
+numpy
+dotenv

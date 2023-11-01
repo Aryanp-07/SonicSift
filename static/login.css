@@ -1,0 +1,63 @@
+.card {
+    background-color: #dfdddd;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.btn {
+    color: #dfdddd;
+}
+
+span {
+    font-size: 15px;
+}
+
+a, a:hover, a:focus, a:active, a:visited {
+    color: #000;
+    text-decoration: underline;
+  }
+
+.card h1, .card  h3, .form-group label, .card p {
+color: #000;
+}
+
+.form-control:focus, .form-control {
+    border-color: #000;
+    color: #000;
+  }
+
+
+.selections {
+    padding:0px;
+    margin: 0 0 0 70px;
+}
+
+/* .card input {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-radius: 0%;
+} */
+
+.card button {
+    border-radius: 0%;
+    opacity: 0.95;
+}
+
+
+.card input {
+    padding: 10px;
+    height: 40px;
+    border: 2px solid #0B2447;
+    border-radius: 0%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    outline: none;
+    transition: all 0.5s;
+  }
+
+
+  
