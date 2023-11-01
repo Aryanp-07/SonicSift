@@ -7,6 +7,11 @@
   color: #000;
 }
 
+.grid abbr {
+  text-decoration: none;
+
+}
+
 .custom {
   margin-top: 50px;
 }

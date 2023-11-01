@@ -32,10 +32,11 @@ def new_recommend(genres):
   except ValueError: pass
   finally:
     seed_gen = genres
+  seed_gen = seed_gen * 2
   recommend_list = []
-  recommendations = spotify.recommendations(seed_artists=None, seed_genres=seed_gen, seed_tracks=None, limit=6, country=None)
-  for i in range(6):
-    recommend_list.append({"Song": recommendations['tracks'][i]['name'], "Artist": recommendations['tracks'][i]['artists'][0]['name'], "Link": recommendations['tracks'][i]['external_urls']['spotify'], "Image": recommendations['tracks'][i]['album']['images'][2]['url']})
+  for i in range(len(seed_gen)):
+    recommendations = spotify.recommendations(seed_artists=None, seed_genres=[seed_gen[i]], seed_tracks=None, limit=1, country=None)
+    recommend_list.append({"Song": recommendations['tracks'][0]['name'], "Artist": recommendations['tracks'][0]['artists'][0]['name'], "Link": recommendations['tracks'][0]['external_urls']['spotify'], "Image": recommendations['tracks'][0]['album']['images'][2]['url'], "Genre": seed_gen[i]})
 
   return recommend_list
 

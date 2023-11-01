@@ -19,6 +19,7 @@
     <h1>Recommended Songs</h1>
     <div class="grid">
         {% for item in recommend_list %}
+        <abbr title="{{item['Song']}}">
         <a href="{{item['Link']}}" target="_blank"><div class="audio-player">
             <div class="album-cover"><img src="{{item['Image']}}" alt="{{item['Song']}}"></div>
             <div class="player-controls">
@@ -31,13 +32,14 @@
                 <p class="artist">{{item['Artist']}}</p>
             </div>
             </div>
-        </div></a>
+        </div></a></abbr>
         {% endfor %}
     </div>
     <br>
     <h1>New Recommendations</h1>
     <div class="grid">
         {% for item in new_recommendations %}
+        <abbr title="{{item['Song']}} - {{item['Genre']}}">
         <a href="{{item['Link']}}" target="_blank"><div class="audio-player">
             <div class="album-cover"><img src="{{item['Image']}}" alt="{{item['Song']}}"></div>
             <div class="player-controls">
@@ -50,7 +52,7 @@
                 <p class="artist">{{item['Artist']}}</p>
             </div>
             </div>
-        </div></a>
+        </div></a></abbr>
         {% endfor %}
     </div>
 
