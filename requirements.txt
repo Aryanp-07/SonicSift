@@ -1,6 +1,6 @@
 Gunicorn
 python-dotenv
-OpenSSL==1.0.2k
+OpenSSL==1.0.2
 urllib3==1.26.7
 flask
 werkzeug
