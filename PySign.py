@@ -41,10 +41,13 @@ def decrypt(encpass):
 def login(mail, pasw):
     global mailid
     mailid = mail
-    if (doc:=collection.find_one({'mail':mail})) and (pasw == decrypt(doc['pasw'])):
-        return 'Valid'
+    doc = collection.find_one({'mail': mail})
     if doc:
-        return 'Incorrect password. Retry.'
+        decrypted_password = decrypt(doc['pasw'])
+        if pasw == decrypted_password:
+            return 'Valid'
+        else:
+            return 'Incorrect password. Retry.'
     return "Account doesn't exist. Please sign up."
 
 '''
