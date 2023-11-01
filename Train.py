@@ -12,7 +12,7 @@ loaded_model = load_model('sonicsift.keras')
 
 def divide_audio(y, sr):
     segment_duration = 2
-    total_duration = 45
+    total_duration = 15
     segment_samples = int(segment_duration * sr)
     overlap = int(segment_samples / 2)
     total_samples = int(total_duration * sr)
