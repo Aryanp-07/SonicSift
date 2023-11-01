@@ -1,5 +1,5 @@
 Gunicorn
-os
+python-dotenv
 flask
 werkzeug
 spotipy
