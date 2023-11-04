@@ -6,6 +6,7 @@ import Train as model
 import spotify as sp
 import PySign as snup
 
+
 app = Flask(__name__)
 
 load_dotenv()
