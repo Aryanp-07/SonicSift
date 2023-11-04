@@ -3,42 +3,76 @@
 # https://onlinedevtools.in/curl convert curls to http urls
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-import os 
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-CLIENT_ID = os.getenv('id')
-CLIENT_SECRET = os.getenv('secret')
+CLIENT_ID = os.getenv("id")
+CLIENT_SECRET = os.getenv("secret")
 
-spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(CLIENT_ID, CLIENT_SECRET))
+spotify = spotipy.Spotify(
+    client_credentials_manager=SpotifyClientCredentials(CLIENT_ID, CLIENT_SECRET)
+)
+
+
 def recommend(genre):
-  if genre == 'hiphop':
-    seed_gen = 'hip-hop'
-  else:
-    seed_gen = genre
+    if genre == "hiphop":
+        seed_gen = "hip-hop"
+    else:
+        seed_gen = genre
 
-  recommend_list = []
-  recommendations = spotify.recommendations(seed_artists=None, seed_genres=[seed_gen], seed_tracks=None, limit=6, country=None)
-  for i in range(6):
-    recommend_list.append({"Song": recommendations['tracks'][i]['name'], "Artist": recommendations['tracks'][i]['artists'][0]['name'], "Link": recommendations['tracks'][i]['external_urls']['spotify'], "Image": recommendations['tracks'][i]['album']['images'][2]['url']})
+    recommend_list = []
+    recommendations = spotify.recommendations(
+        seed_artists=None,
+        seed_genres=[seed_gen],
+        seed_tracks=None,
+        limit=6,
+        country=None,
+    )
+    for i in range(6):
+        recommend_list.append(
+            {
+                "Song": recommendations["tracks"][i]["name"],
+                "Artist": recommendations["tracks"][i]["artists"][0]["name"],
+                "Link": recommendations["tracks"][i]["external_urls"]["spotify"],
+                "Image": recommendations["tracks"][i]["album"]["images"][2]["url"],
+            }
+        )
 
-  return recommend_list
+    return recommend_list
+
 
 def new_recommend(genres):
-  try:
-    index_hop=genres.index('hiphop')
-    genres[index_hop] = 'hip-hop'
-  except ValueError: pass
-  finally:
-    seed_gen = genres
-  seed_gen = seed_gen * 2
-  recommend_list = []
-  for i in range(len(seed_gen)):
-    recommendations = spotify.recommendations(seed_artists=None, seed_genres=[seed_gen[i]], seed_tracks=None, limit=1, country=None)
-    recommend_list.append({"Song": recommendations['tracks'][0]['name'], "Artist": recommendations['tracks'][0]['artists'][0]['name'], "Link": recommendations['tracks'][0]['external_urls']['spotify'], "Image": recommendations['tracks'][0]['album']['images'][2]['url'], "Genre": seed_gen[i]})
+    try:
+        index_hop = genres.index("hiphop")
+        genres[index_hop] = "hip-hop"
+    except ValueError:
+        pass
+    finally:
+        seed_gen = genres
+    seed_gen = seed_gen * 2
+    recommend_list = []
+    for i in range(len(seed_gen)):
+        recommendations = spotify.recommendations(
+            seed_artists=None,
+            seed_genres=[seed_gen[i]],
+            seed_tracks=None,
+            limit=1,
+            country=None,
+        )
+        recommend_list.append(
+            {
+                "Song": recommendations["tracks"][0]["name"],
+                "Artist": recommendations["tracks"][0]["artists"][0]["name"],
+                "Link": recommendations["tracks"][0]["external_urls"]["spotify"],
+                "Image": recommendations["tracks"][0]["album"]["images"][2]["url"],
+                "Genre": seed_gen[i],
+            }
+        )
 
-  return recommend_list
+    return recommend_list
+
 
 """ Music recommend card html
 <div class="card">
@@ -193,4 +227,3 @@ def new_recommend(genres):
 
 
 """
-
